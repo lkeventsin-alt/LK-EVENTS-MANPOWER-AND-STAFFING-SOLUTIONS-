@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LK Events – Manpower & Staffing Solutions</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Cormorant+Garamond:wght@400;600&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700;900&family=Playfair+Display:wght@700;900&family=Cormorant+Garamond:wght@400;600&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #060e1f;
@@ -74,8 +74,8 @@
     border: 2px solid var(--gold);
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 14px;
     font-weight: 900;
     color: var(--gold2);
     letter-spacing: -1px;
@@ -87,7 +87,7 @@
   }
 
   .nav-logo .brand-name {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel Decorative', serif;
     font-size: 20px;
     font-weight: 700;
     color: var(--white);
@@ -221,7 +221,7 @@
   .hero-label::after { background: linear-gradient(90deg, var(--gold2), transparent); }
 
   .hero-h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel Decorative', serif;
     font-size: clamp(52px, 9vw, 110px);
     font-weight: 900;
     line-height: .92;
@@ -845,7 +845,7 @@
   }
 
   .footer-logo {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel Decorative', serif;
     font-size: 28px;
     font-weight: 900;
     background: linear-gradient(135deg, var(--gold), var(--gold2));
@@ -979,6 +979,183 @@
     0%,100% { box-shadow: 0 6px 24px rgba(37,211,102,.5); }
     50%      { box-shadow: 0 6px 36px rgba(37,211,102,.8), 0 0 0 10px rgba(37,211,102,.1); }
   }
+
+  /* ─── ENHANCED ANIMATIONS ─── */
+
+  /* Shimmer on gold elements */
+  @keyframes shimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  /* Rotating border glow on service cards */
+  @keyframes borderGlow {
+    0%, 100% { border-color: rgba(201,146,42,.15); box-shadow: none; }
+    50%       { border-color: rgba(201,146,42,.5); box-shadow: 0 0 20px rgba(201,146,42,.15); }
+  }
+
+  /* Floating animation for hero badge */
+  @keyframes floatBadge {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-8px); }
+  }
+
+  /* Counter count-up pulse */
+  @keyframes countPulse {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.08); }
+    100% { transform: scale(1); }
+  }
+
+  /* Gradient text shimmer for hero */
+  .hero-h1 .gold {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 30%, var(--gold-light) 50%, var(--gold2) 70%, var(--gold) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+  }
+
+  /* Nav logo badge float */
+  .lk-badge {
+    animation: floatBadge 3.5s ease-in-out infinite;
+  }
+
+  /* Stat numbers animate on load */
+  .stat-num {
+    animation: countPulse 2s ease-in-out infinite;
+  }
+  .stat-item:nth-child(2) .stat-num { animation-delay: .3s; }
+  .stat-item:nth-child(3) .stat-num { animation-delay: .6s; }
+  .stat-item:nth-child(4) .stat-num { animation-delay: .9s; }
+
+  /* Service cards staggered border glow */
+  .service-card { animation: borderGlow 4s ease-in-out infinite; }
+  .service-card:nth-child(2) { animation-delay: .5s; }
+  .service-card:nth-child(3) { animation-delay: 1s; }
+  .service-card:nth-child(4) { animation-delay: 1.5s; }
+  .service-card:nth-child(5) { animation-delay: 2s; }
+  .service-card:nth-child(6) { animation-delay: 2.5s; }
+  .service-card:nth-child(7) { animation-delay: 3s; }
+  .service-card:nth-child(8) { animation-delay: 3.5s; }
+
+  /* Service icon spin on hover */
+  .service-card:hover .service-icon {
+    animation: spinIcon .5s ease-in-out;
+  }
+  @keyframes spinIcon {
+    0%   { transform: rotate(0deg) scale(1); }
+    50%  { transform: rotate(15deg) scale(1.15); }
+    100% { transform: rotate(0deg) scale(1); }
+  }
+
+  /* Why cards hover lift with glow */
+  .why-card:hover {
+    box-shadow: 0 12px 40px rgba(201,146,42,.15), 0 0 0 1px rgba(201,146,42,.3);
+  }
+
+  /* Gold divider pulse */
+  .gold-divider {
+    animation: dividerPulse 3s ease-in-out infinite;
+  }
+  @keyframes dividerPulse {
+    0%, 100% { opacity: .5; }
+    50%       { opacity: 1; }
+  }
+
+  /* Typewriter cursor on hero tagline */
+  .hero-sub::after {
+    content: '|';
+    color: var(--gold2);
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+
+  /* Event cards zoom-in effect */
+  .event-card {
+    transition: transform .4s cubic-bezier(.25,.8,.25,1), border-color .4s, box-shadow .4s;
+  }
+
+  /* Contact form inputs glow on focus */
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: rgba(201,146,42,.7);
+    box-shadow: 0 0 0 3px rgba(201,146,42,.1);
+  }
+
+  /* Submit button shimmer */
+  .form-submit {
+    background-size: 200% auto;
+    background-image: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 40%, var(--gold-light) 60%, var(--gold2) 80%, var(--gold) 100%);
+  }
+  .form-submit:hover {
+    animation: shimmer 1.5s linear infinite;
+  }
+
+  /* Section titles underline draw animation */
+  .section-title {
+    position: relative;
+  }
+
+  /* About card hover */
+  .about-card {
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+  .about-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,.4), 0 0 30px rgba(201,146,42,.1);
+  }
+
+  /* About icons rotate on hover */
+  .about-point:hover .about-icon {
+    transform: scale(1.15) rotate(10deg);
+    transition: transform .3s ease;
+    border-color: rgba(201,146,42,.6);
+    box-shadow: 0 0 15px rgba(201,146,42,.2);
+  }
+
+  /* Why icon bounce */
+  .why-card:hover .why-icon {
+    display: inline-block;
+    animation: iconBounce .5s ease;
+  }
+  @keyframes iconBounce {
+    0%   { transform: translateY(0); }
+    30%  { transform: translateY(-10px); }
+    60%  { transform: translateY(-4px); }
+    100% { transform: translateY(0); }
+  }
+
+  /* Nav links animated underline */
+  .nav-links a::after {
+    transition: transform .3s cubic-bezier(.25,.8,.25,1);
+  }
+
+  /* Particle sparkle in hero */
+  .sparkle {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    background: var(--gold2);
+    opacity: 0;
+    animation: sparkleFade 3s ease-in-out infinite;
+  }
+  @keyframes sparkleFade {
+    0%   { opacity: 0; transform: scale(0) rotate(0deg); }
+    50%  { opacity: .7; transform: scale(1) rotate(180deg); }
+    100% { opacity: 0; transform: scale(0) rotate(360deg); }
+  }
+
+  /* Scroll reveal with stagger */
+  .reveal {
+    transition: opacity .8s cubic-bezier(.25,.8,.25,1), transform .8s cubic-bezier(.25,.8,.25,1);
+  }
+
 </style>
 </head>
 <body>
@@ -1009,6 +1186,14 @@
   <div class="hero-deco"></div>
   <div class="hero-deco"></div>
   <div class="hero-deco"></div>
+
+  <div class="sparkle" style="width:6px;height:6px;top:35%;left:18%;animation-delay:0s;"></div>
+  <div class="sparkle" style="width:4px;height:4px;top:55%;left:8%;animation-delay:1s;"></div>
+  <div class="sparkle" style="width:5px;height:5px;top:25%;right:15%;animation-delay:.7s;"></div>
+  <div class="sparkle" style="width:3px;height:3px;top:65%;right:12%;animation-delay:1.8s;"></div>
+  <div class="sparkle" style="width:5px;height:5px;top:75%;left:25%;animation-delay:2.2s;"></div>
+  <div class="sparkle" style="width:4px;height:4px;top:20%;left:45%;animation-delay:.4s;"></div>
+
   <div class="hero-content">
     <div class="hero-label">Manpower & Staffing Solutions</div>
     <h1 class="hero-h1"><span class="gold">LK</span><br>EVENTS</h1>
@@ -1259,7 +1444,7 @@
           <div class="contact-detail-icon">✉️</div>
           <div class="contact-detail-text">
             <h4>Email</h4>
-            <a href="/cdn-cgi/l/email-protection#bcd0d7d9cad9d2c8cf92d5d2fcdbd1ddd5d092dfd3d1"><span class="__cf_email__" data-cfemail="107c7b7566757e64633e797e50777d71797c3e737f7d">[email&#160;protected]</span></a>
+            <a href="mailto:lkevents.in@gmail.com">lkevents.in@gmail.com</a>
           </div>
         </div>
 
@@ -1325,7 +1510,7 @@
   <div class="footer-divider"></div>
   <div class="footer-bottom">
     © 2025 LK Events — Manpower & Staffing Solutions<br>
-    <span style="margin-top: 6px; display: block;">📞 6369176060 &nbsp;·&nbsp; ✉️ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="deb2b5bba8bbb0aaadf0b7b09eb9b3bfb7b2f0bdb1b3">[email&#160;protected]</a></span>
+    <span style="margin-top: 6px; display: block;">📞 6369176060 &nbsp;·&nbsp; ✉️ <a href="mailto:lkevents.in@gmail.com" style="color:inherit;text-decoration:none;">lkevents.in@gmail.com</a></span>
   </div>
 </footer>
 
